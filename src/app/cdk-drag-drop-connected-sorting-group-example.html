@@ -1,0 +1,32 @@
+<div class="row" cdkDropListGroup>
+  <div class="col-sm-3">
+    <h3>Slides</h3>
+    <div cdkDropList [cdkDropListData]="slide" class="example-list">
+      <div class="example-box" *ngFor="let item of slide" cdkDrag>
+        <div class="box-{{item.color}}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <h3 style="text-align:center">Playbook</h3>
+    <div cdkDropList [cdkDropListData]="playbook" class="example-list" (cdkDropListDropped)="OnDrop($event)">
+      <div class="example-box" *ngFor="let item of playbook" cdkDrag>
+        <div class="box-{{item.color}}">
+          <div *ngIf="item.path != null">
+            <div class="box-{{item.path}}"></div>
+          </div>            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <h3 style="text-align:right">Images</h3>
+    <div cdkDropList [cdkDropListData]="content" class="example-list">
+      <div class="example-box" *ngFor="let item of content" cdkDrag>
+        <div class="box-{{item.name}}"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
